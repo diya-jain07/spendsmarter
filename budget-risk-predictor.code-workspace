@@ -1,0 +1,72 @@
+{
+  "folders": [
+    {
+      "name": "budget-risk-predictor",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.fontFamily": "'JetBrains Mono', 'Cascadia Code', monospace",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 1.7,
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "workbench.colorTheme": "Default Dark Modern",
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/__pycache__": true,
+      "**/.venv": true
+    },
+    "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/bin/python",
+    "python.analysis.extraPaths": ["${workspaceFolder}/backend"],
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true
+  },
+  "launch": {
+    "configurations": [
+      {
+        "name": "Frontend (Vite)",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/frontend/node_modules/.bin/vite",
+        "cwd": "${workspaceFolder}/frontend",
+        "console": "integratedTerminal"
+      },
+      {
+        "name": "Backend (FastAPI)",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/backend/run.py",
+        "cwd": "${workspaceFolder}/backend",
+        "console": "integratedTerminal"
+      }
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Start Frontend",
+        "type": "shell",
+        "command": "cd frontend && npm run dev",
+        "group": "build",
+        "presentation": { "panel": "new" }
+      },
+      {
+        "label": "Start Backend",
+        "type": "shell",
+        "command": "cd backend && python run.py",
+        "group": "build",
+        "presentation": { "panel": "new" }
+      },
+      {
+        "label": "Install All",
+        "type": "shell",
+        "command": "cd frontend && npm install && echo 'Frontend deps installed. Run: cd backend && pip install -r requirements.txt'",
+        "group": "build"
+      }
+    ]
+  }
+}
