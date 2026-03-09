@@ -538,7 +538,7 @@ export default function App() {
 
       <footer style={{ borderTop: '1px solid var(--border)', padding: '14px 28px', textAlign: 'center' }}>
         <span style={{ fontSize: 11, color: 'var(--text3)' }}>
-          MLE · Bayesian Posterior · Normal CDF · Sum of Independent Normals
+          
         </span>
       </footer>
     </div>
